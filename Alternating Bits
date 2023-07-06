@@ -1,0 +1,17 @@
+var hasAlternatingBits = function(n) {
+   let f=0;
+    if(n&1==1) f=1;
+    n>>=1;
+    while(n){
+       if(n&1==1){
+          if(f==1)return false;
+       }
+        else{ 
+            if(f==0)
+           return false;
+       }
+        f=(n&1);
+           n>>=1;
+    }
+return true;
+};
