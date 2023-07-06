@@ -1,0 +1,22 @@
+var toHex = function(num) {
+     let ans = [];
+     let digit=0;
+   let dic = ['a', 'b', 'c', 'd', 'e', 'f'];
+    
+    if(num< 0)
+        num = 2**32 + num;
+    
+    while( num > 0) {
+        digit = num % 16;
+        if (digit >= 10)
+            digit = dic[digit - 10];
+        else
+            digit = digit.toString();
+        ans.push(digit);
+        num = Math.floor(num / 16);
+    }
+  
+    if (ans.length == 0)
+        return "0"; 
+    return ans.reverse().join(''); 
+};
