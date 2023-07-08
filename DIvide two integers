@@ -1,0 +1,35 @@
+
+var divide = function(dividend, divisor) {
+    
+   if (dividend === -2147483648 && divisor === -1) {
+    return 2147483647;
+  }
+  if (divisor === 0) {
+    return dividend >= 0 ? Infinity : -Infinity;
+  }
+
+  // determine sign of the quotient
+  const negative = (dividend < 0) !== (divisor < 0);
+
+  // convert both dividend and divisor to positive
+  dividend = Math.abs(dividend);
+  divisor = Math.abs(divisor);
+
+  // initialize variables for quotient and remainder
+  let quotient = 0;
+  let tempDivisor = divisor;
+
+  while (dividend >= tempDivisor) {
+    let tempQuotient = 1;
+    while (dividend >= (tempDivisor << 1)) {
+      tempDivisor <<= 1;
+      tempQuotient <<= 1;
+    }
+    dividend -= tempDivisor;
+    quotient += tempQuotient;
+    tempDivisor = divisor;
+  }
+
+  // return quotient with proper sign
+  return negative ? -quotient : quotient;
+}
