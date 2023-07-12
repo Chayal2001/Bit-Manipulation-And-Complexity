@@ -1,0 +1,10 @@
+var isValid = function(s) {
+      const reversedStr = s.split('').reverse().join('');
+  
+  if (reversedStr === s) {
+    return true;
+  } else {
+    return false;
+  }
+    
+};
