@@ -1,0 +1,4 @@
+var extract_number = function(s) {
+   const numbers = s.match(/\d+/g);
+  return numbers ? numbers.map(Number) : [];
+};
